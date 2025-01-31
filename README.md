@@ -43,7 +43,7 @@ Before running the script, ensure you have the following installed:
 ## Usage
 Run the script using:
 ```sh
-node script.js
+node debug.js
 ```
 
 ## Functions
@@ -66,7 +66,7 @@ async function sendTransaction(to, amount) {
 ```
 **Usage:**
 ```sh
-node script.js send <recipient_address> <amount>
+node debug.js send <recipient_address> <amount>
 ```
 
 ### 3. Get Gas Price of a Block
@@ -79,7 +79,7 @@ async function getGasPrice(blockNumber) {
 ```
 **Usage:**
 ```sh
-node script.js gas <block_number>
+node debug.js gas <block_number>
 ```
 
 ### 4. Get Gas Usage of a Transaction
@@ -92,7 +92,7 @@ async function getTransactionGas(txHash) {
 ```
 **Usage:**
 ```sh
-node script.js gas-usage <tx_hash>
+node debug.js gas-usage <tx_hash>
 ```
 
 ### 5. Estimate Gas for Contract Execution
@@ -105,7 +105,7 @@ async function estimateGas(txData) {
 ```
 **Usage:** Modify `txData` inside the script and run:
 ```sh
-node script.js estimate
+node debug.js estimate
 ```
 
 ## License

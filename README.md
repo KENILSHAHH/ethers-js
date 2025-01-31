@@ -1,4 +1,4 @@
-# Several Etherjs Functions Explained with example
+# Ethereum & Polygon Wallet Interaction Script
 
 ## Overview
 This script interacts with the Ethereum and Polygon blockchain using `ethers.js`. It allows users to:
@@ -43,27 +43,19 @@ Before running the script, ensure you have the following installed:
 ## Usage
 Run the script using:
 ```sh
-node debug.js
+node debug.js <command> [arguments]
 ```
 
-## Functions
+## Commands
 ### 1. Fetch Wallet Address
 Retrieves and prints the wallet's public address.
-```js
-async function getAddress() {
-  const address = await wallet.getAddress();
-  console.log('Address:', address);
-}
+**Usage:**
+```sh
+node debug.js address
 ```
 
 ### 2. Send Native Tokens
 Sends native tokens (ETH/MATIC) to a specified address.
-```js
-async function sendTransaction(to, amount) {
-  const tx = await wallet.sendTransaction({ to, value: ethers.parseEther(amount) });
-  console.log('Transaction Hash:', tx.hash);
-}
-```
 **Usage:**
 ```sh
 node debug.js send <recipient_address> <amount>
@@ -71,12 +63,6 @@ node debug.js send <recipient_address> <amount>
 
 ### 3. Get Gas Price of a Block
 Fetches the gas price details for a given block.
-```js
-async function getGasPrice(blockNumber) {
-  const block = await provider.getBlock(blockNumber);
-  console.log('Gas Price:', block.baseFeePerGas.toString());
-}
-```
 **Usage:**
 ```sh
 node debug.js gas <block_number>
@@ -84,29 +70,51 @@ node debug.js gas <block_number>
 
 ### 4. Get Gas Usage of a Transaction
 Retrieves gas used for a specific transaction.
-```js
-async function getTransactionGas(txHash) {
-  const receipt = await provider.getTransactionReceipt(txHash);
-  console.log('Gas Used:', receipt.gasUsed.toString());
-}
-```
 **Usage:**
 ```sh
 node debug.js gas-usage <tx_hash>
 ```
 
 ### 5. Estimate Gas for Contract Execution
-Estimates the gas required for executing a contract call.
-```js
-async function estimateGas(txData) {
-  const gasEstimate = await provider.estimateGas(txData);
-  console.log('Estimated Gas:', gasEstimate.toString());
-}
-```
-**Usage:** Modify `txData` inside the script and run:
+Estimates and executes a contract call.
+**Usage:**
 ```sh
 node debug.js estimate
 ```
+
+## Function Details
+### getAddress()
+Fetches and logs the wallet's public address by retrieving it from the wallet instance.
+
+### sendPol(address, value)
+Sends a specified amount of native tokens (MATIC/ETH) to a recipient address.
+- **Parameters:**
+  - `address`: The recipient's wallet address.
+  - `value`: The amount of tokens to send.
+- **Output:**
+  - Logs the transaction hash with a link to the block explorer.
+
+### getGasPriceOfABlock(blockNumber)
+Retrieves and logs gas price details for a specified block.
+- **Parameters:**
+  - `blockNumber`: The block number to fetch details for.
+- **Output:**
+  - Gas price in gwei, gas used, and gas limit of the block.
+
+### getGasPriceOfATransaction(txHash)
+Fetches and logs gas usage details for a specific transaction.
+- **Parameters:**
+  - `txHash`: The transaction hash to look up.
+- **Output:**
+  - Gas price, gas limit, and gas used for the transaction.
+
+### estimateGasForAContract()
+Estimates gas for executing a smart contract function and executes the transaction.
+- **Operations:**
+  - Fetches network gas details.
+  - Estimates gas for minting an NFT.
+  - Sends the transaction with an adjusted gas limit and price.
+  - Waits for confirmation and logs the transaction hash.
 
 ## License
 This project is licensed under the MIT License.

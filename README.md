@@ -3,7 +3,7 @@
 ## Overview
 This script interacts with the Ethereum and Polygon blockchain using `ethers.js`. It allows users to:
 - Fetch the wallet address
-- Send native tokens (MATIC, ETH, etc.)
+- Send native tokens (POL, ETH, etc.)
 - Retrieve gas price details of a block
 - Fetch gas usage details of a transaction
 - Estimate gas for contract execution
@@ -55,7 +55,7 @@ node debug.js address
 ```
 
 ### 2. Send Native Tokens
-Sends native tokens (ETH/MATIC) to a specified address.
+Sends native tokens (ETH/POL) to a specified address.
 **Usage:**
 ```sh
 node debug.js send <recipient_address> <amount>
@@ -87,7 +87,7 @@ node debug.js estimate
 Fetches and logs the wallet's public address by retrieving it from the wallet instance.
 
 ### sendPol(address, value)
-Sends a specified amount of native tokens (MATIC/ETH) to a recipient address.
+Sends a specified amount of native tokens (POL/ETH) to a recipient address.
 - **Parameters:**
   - `address`: The recipient's wallet address.
   - `value`: The amount of tokens to send.

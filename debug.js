@@ -460,7 +460,10 @@ const wallet = new ethers.Wallet(PVT_KEY, provider);
 //     type: 'function',
 //   },
 // ];
-
+async function getAddress() {
+  const address = await wallet.getAddress();
+  console.log('Address:', address);
+}
 async function sendPol(address, value) {
   const transaction = await wallet.sendTransaction({
     to: address,
@@ -541,4 +544,4 @@ console.log(prevbalance, newbalance);
 // getGasPriceOfATransaction(
 //   '0x85bf32f86116c2f6dc557dfa13ee08e38d8d1ff43b6ee175c9a1f8789c1c5847'
 // );
-estimateGasForAContract();
+getAddress();

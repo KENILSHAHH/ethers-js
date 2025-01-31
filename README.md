@@ -16,20 +16,29 @@ Before running the script, ensure you have the following installed:
 ## Installation
 1. Clone this repository:
    ```sh
-   git clone <repo_url>
-   cd <repo_directory>
+   git clone https://github.com/KENILSHAHH/ethers-js
+   cd ethers-js
    ```
 2. Install dependencies:
    ```sh
    npm install
    ```
-3. Create a `.env` file in the root directory and add the following:
+3. Create a `.env` file by copying `.env.example`:
+   ```sh
+   cp .env.example .env
+   ```
+4. Add the following environment variables in `.env`:
    ```env
    RPC=<your_rpc_url>
    PRIVATE_KEY=<your_private_key>
    ```
    - Replace `<your_rpc_url>` with the RPC URL of your Ethereum/Polygon node.
    - Replace `<your_private_key>` with your wallet's private key.
+
+5. Remove the example file:
+   ```sh
+   rm .env.example
+   ```
 
 ## Usage
 Run the script using:

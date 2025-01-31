@@ -1,4 +1,4 @@
-# Ethereum & Polygon Wallet Interaction Script
+# Ethersjs debugging 
 
 ## Overview
 This script interacts with the Ethereum and Polygon blockchain using `ethers.js`. It allows users to:
